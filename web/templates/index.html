@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Machine Learning Web App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Machine Learning Web App</h1>
+    <form method="POST" action="/predict">
+        <label for="age">Age:</label>
+        <input type="number" name="age" required><br>
+
+        <label for="job">Job:</label>
+        <select name="job" required>
+            {% for value in job_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="marital">Marital:</label>
+        <select name="marital" required>
+            {% for value in marital_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="education">Education:</label>
+        <select name="education" required>
+            {% for value in education_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="default">Default:</label>
+        <select name="default" required>
+            {% for value in default_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="balance">Balance:</label>
+        <input type="number" name="balance" required><br>
+
+        <label for="housing">Housing:</label>
+        <select name="housing" required>
+            {% for value in housing_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="loan">Loan:</label>
+        <select name="loan" required>
+            {% for value in loan_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+
+        <label for="day">Day:</label>
+        <input type="number" name="day" required><br>
+
+        <label for="month">Month:</label>
+        <select name="month" required>
+            {% for value in month_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="duration">Duration:</label>
+        <input type="number" name="duration" required><br>
+
+        <label for="campaign">Campaign:</label>
+        <input type="number" name="campaign" required><br>
+
+        <label for="pdays">Pdays:</label>
+        <input type="number" name="pdays" required><br>
+
+        <label for="previous">Previous:</label>
+        <input type="number" name="previous" required><br>
+
+        <label for="poutcome">Poutcome:</label>
+        <select name="poutcome" required>
+            {% for value in poutcome_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="model">Model:</label>
+        <select name="model" required>
+            {% for value in model_values %}
+            <option value="{{ value }}">{{ value }}</option>
+            {% endfor %}
+        </select><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+    <p>Prediction: {{ prediction }}</p>
+    {% endif %}
+</body>
+
+</html>
